@@ -29,6 +29,7 @@ body{
     transition: all 0.5s;
 }
 .main-menu__list{
+    z-index: 3;
     position: fixed;
     background-color: #262335;
     width: 70%;
@@ -67,9 +68,11 @@ body{
     background-color: white;
 }
 .header-container{
+    z-index: 1;
     position: relative;
     width: 100%;
     height: 95vh;
+    overflow: hidden;
 }
 .michi{
     width: 100%;
@@ -77,6 +80,10 @@ body{
     object-fit: cover;
     position: absolute;
     top: 0px;
+    transition: all 3s;
+}
+.header-container:hover .michi{
+    transform: scale(1.1,1.1);
 }
 .header-description{
     position: absolute;
@@ -92,6 +99,8 @@ body{
     text-shadow: 0px 0px 10px white;
     font-size: 5em;
     font-family: 'Squada One', cursive;
+    animation: titulo-animado 1s ease 0s 1;
+    text-align: center;
 }
 @media screen and (min-width:640px) {
     .main-menu__list{
@@ -99,6 +108,7 @@ body{
         transform: translateX(0%);
         height: auto;
         flex-direction: row;
+        background-color: transparent;
     }
     .main-menu__list li:first-child{
         margin-top:auto;
@@ -118,4 +128,13 @@ body{
         height: 50vh;
     }
     
+}
+
+@keyframes titulo-animado {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
 }
